@@ -30,6 +30,7 @@ define([
     "./src/navigation/NavigationService",
     "./src/creation/CreationPolicy",
     "./src/navigation/NavigateAction",
+    "./src/navigation/OrphanDenavigator",
     "./src/windowing/NewTabAction",
     "./src/windowing/FullscreenAction",
     "./src/creation/CreateActionProvider",
@@ -59,6 +60,7 @@ define([
     NavigationService,
     CreationPolicy,
     NavigateAction,
+    OrphanDenavigator,
     NewTabAction,
     FullscreenAction,
     CreateActionProvider,
@@ -345,6 +347,14 @@ define([
                         "navigationService",
                         "$rootScope",
                         "$document"
+                    ]
+                },
+                {
+                    "implementation": OrphanDenavigator,
+                    "depends": [
+                        "throttle",
+                        "topic",
+                        "navigationService"
                     ]
                 }
             ],
